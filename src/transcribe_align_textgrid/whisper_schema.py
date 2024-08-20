@@ -27,10 +27,10 @@ WHISPER_SCHEMA = {
                         "items": {
                             "type": "object",
                             "properties": {
-                                "text": {"type": "string"},
+                                "word": {"type": "string"},
                                 "start": {"type": "number", "minimum": 0},
                                 "end": {"type": "number", "minimum": 0},
-                                "confidence": {
+                                "probability": {
                                     "type": "number",
                                     "minimum": 0,
                                     "maximum": 1,

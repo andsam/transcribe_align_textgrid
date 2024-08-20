@@ -32,10 +32,10 @@ def _remove_empty(grid: Textgrid) -> Textgrid:
 
 class WhisperWord:
     def __init__(self, whisper_word: Dict) -> None:
-        self.text = str(whisper_word["text"])
+        self.text = str(whisper_word["word"])
         self.start = float(whisper_word["start"])
         self.end = float(whisper_word["end"])
-        self.confidence = float(whisper_word["confidence"])
+        self.confidence = float(whisper_word["probability"])
 
     def to_text_interval(self) -> Interval:
         return Interval(start=self.start, end=self.end, label=self.text)

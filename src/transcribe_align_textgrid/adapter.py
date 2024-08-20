@@ -35,7 +35,7 @@ class WhisperWord:
         self.text = str(whisper_word["word"])
         self.start = float(whisper_word["start"])
         self.end = float(whisper_word["end"])
-        self.confidence = float(whisper_word["avg_logprob"])
+        self.confidence = float(whisper_word["probability"])
 
     def to_text_interval(self) -> Interval:
         return Interval(start=self.start, end=self.end, label=self.text)
@@ -49,7 +49,7 @@ class WhisperSegment:
         self.text = str(whisper_segment["text"])
         self.start = float(whisper_segment["start"])
         self.end = float(whisper_segment["end"])
-        self.confidence = float(whisper_segment["probability"])
+        self.confidence = float(whisper_segment["avg_logprob"])
         self.words = [WhisperWord(x) for x in whisper_segment["words"]]
 
     def to_text_interval(self) -> Interval:

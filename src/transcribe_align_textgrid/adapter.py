@@ -35,7 +35,7 @@ class WhisperWord:
         self.text = str(whisper_word["word"])
         self.start = float(whisper_word["start"])
         self.end = float(whisper_word["end"])
-        self.confidence = float(whisper_word["probability"])
+        self.confidence = float(whisper_word["avg_logprob"])
 
     def to_text_interval(self) -> Interval:
         return Interval(start=self.start, end=self.end, label=self.text)
